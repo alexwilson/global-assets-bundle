@@ -1,0 +1,3 @@
+services:
+    antoligy.global_assets:
+        class: antoligy\GlobalAssetsBundle\Controller\AssetsController
