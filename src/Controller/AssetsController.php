@@ -2,18 +2,24 @@
 
 namespace antoligy\GlobalAssetsBundle\Controller;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class AssetsController
 {
-    public function __invoke()
+
+    public function __construct($twig)
     {
-        return $this->renderAssetsAction();
+        $this->twig = $twig;
     }
 
-    public function renderAssetsAction()
-    {
-        $response = new Response();
+    public function assetsAction(
+        Request $request,
+        $blk,
+        $tpl
+    ) {
+        $content = $this->twig->loadTemplate($tpl)->renderBlock($blk, []);
+        $response = new Response($content);
         return $response;
     }
 }

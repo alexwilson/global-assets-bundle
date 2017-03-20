@@ -1,3 +1,13 @@
 services:
-    antoligy.global_assets:
+
+    global_assets:
+        alias: antoligy.global_assets.controller.assets
+
+    antoligy.global_assets.controller.assets:
+        arguments: ["@twig"]
         class: antoligy\GlobalAssetsBundle\Controller\AssetsController
+
+    antoligy.global_assets.twig.assets:
+        class: antoligy\GlobalAssetsBundle\Twig\GlobalAssetsExtension
+        public: false
+        tags: [{ name: twig.extension }]
