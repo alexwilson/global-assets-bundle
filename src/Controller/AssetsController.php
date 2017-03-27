@@ -26,7 +26,7 @@ class AssetsController
         $this->twig = $twig;
         $this->response = new Response();
 
-        $this->response->setPublic();        
+        $this->response->setPublic();
         $this->response->setSharedMaxAge(3600);
         $this->response->setVary('Accept-Encoding');
     }
